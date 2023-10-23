@@ -1,2 +1,9 @@
-# network-file-explorer
-Site internet a héberger en local pour partager des fichiers entre les machines d'un réseau
+# Network File Explorer
+Website to be hosted locally to share files between machines on a network
+
+----
+
+
+## To Do
+
+[todo.txt](https://github.com/LikAnda/network-file-explorer/blob/main/todo.txt)
