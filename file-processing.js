@@ -10,6 +10,7 @@ $(document).ready(function () {
             contentType: false,
             success: function (response) {
                 alert(response);
+                location.reload()
             }
         });
     });
@@ -24,6 +25,7 @@ $(document).ready(function () {
             data: { folder_name: folderName },
             success: function (response) {
                 alert(response);
+                location.reload()
             }
         });
     });
@@ -38,6 +40,7 @@ $(document).ready(function () {
             data: { file_name: fileName },
             success: function (response) {
                 alert(response);
+                location.reload()
             }
         });
     });

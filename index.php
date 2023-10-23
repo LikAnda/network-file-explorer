@@ -13,8 +13,7 @@
 <body>
     <h1>Partage de fichiers</h1>
     <?php
-        $slash = "/";
-        $directory_display = $slash . "home/";
+        $directory_display = "/home";
         echo "<h2>Chemin : $directory_display</h2>";
     ?>
 
