@@ -1,11 +1,11 @@
 To Do:
+# Adapter les fonctions pour qu'elles se produisent dans le chamin actuelle (pas tout le temps /home)
 # Enlever limite de trasnfert de fichier (mettre la limite a 10Go)
 # Ajouter un bouton à côté de chaque fichier pour le supprimer
-
-## Ajouter affichage et récupération de la taille d'un fichier
 
 
 Do:
 # Navigation entre les dossiers
 # Affichage interactif chemin de fichiers
+## Ajouter affichage et récupération de la taille d'un fichier
 ### Réparer favicon

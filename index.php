@@ -10,7 +10,7 @@
     <!-- Bibliothèques -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Scripts -->
-    <script src="file-processing.js"></script>
+    <script src="JavaScript/file-processing.js"></script>
 </head>
 <body>
     <h1>Partage de fichiers</h1>
@@ -37,13 +37,16 @@
     <!-- Affichage des fichiers -->
     <ul>
         <?php
+        include "server-file-processing/format-bytes.php";
         $files = array_diff(scandir($directory), array('..', '.'));
         foreach ($files as $file) {
             $file_path = $directory . $file;
             if (is_dir($file_path)) { // Si l'élément est ub fichier
                 echo "<p>📁 <a href='index.php?dir=$file_path/'>$file/</a></p></li>";
             } else {
-                echo "<li><a href='home/$file' download>$file</a></li>";
+                $file_size = filesize($file_path);
+                $file_size_formatted = format_bytes($file_size); // Convertir les octets pour un meilleur affichage
+                echo "<li><a href='home/$file' download>$file</a> ($file_size_formatted)</li>";
             }
         }
         ?>
