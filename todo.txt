@@ -1,11 +1,11 @@
 To Do:
 # Enlever limite de trasnfert de fichier (mettre la limite a 10Go)
-# Navigation entre les dossiers (+ affichage du directory actuel)
 # Ajouter un bouton à côté de chaque fichier pour le supprimer
 
 ## Ajouter affichage et récupération de la taille d'un fichier
 
-### Réparer favicon
-
 
 Do:
+# Navigation entre les dossiers
+# Affichage interactif chemin de fichiers
+### Réparer favicon

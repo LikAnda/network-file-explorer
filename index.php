@@ -5,6 +5,8 @@
     <title>Partage de fichiers</title>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
 
+    <!-- Fichiers CSS -->
+    <link rel="stylesheet" href="../style.css">
     <!-- Bibliothèques -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Scripts -->
@@ -12,20 +14,34 @@
 </head>
 <body>
     <h1>Partage de fichiers</h1>
+    
+    <!-- Affichage interactif du chemin -->
     <?php
-        $directory_display = "/home";
-        echo "<h2>Chemin : $directory_display</h2>";
+        if (isset($_GET["dir"])) {
+            $directory = $_GET["dir"];
+        } else {
+            $directory = "home/"; // Page d'accueil du site (sans paramètre ?dir=)
+        }
+        $directory_parts = explode("/", $directory); // Séparer en un tableau à partir du /
+        $directory_parts = array_slice($directory_parts, 0, -1); // Enlever dernière élément de $directory_parts (un slash)
+
+        echo "<h2>Chemin : ";
+        $assembled_parts = "";
+        foreach ($directory_parts as $part) {
+            $assembled_parts .= $part . "/"; // Ajouter chaque partie du chemin pour le parmaètre ?dir=
+            echo "/<a href='index.php?dir=$assembled_parts'>$part</a>";
+        }
+        echo "</h2>";
     ?>
 
     <!-- Affichage des fichiers -->
     <ul>
         <?php
-        $directory = "home/";
         $files = array_diff(scandir($directory), array('..', '.'));
         foreach ($files as $file) {
             $file_path = $directory . $file;
-            if (is_dir($file_path)) {
-                echo "<li><a href='index.php?dir=$file'>$file/</a></li>";
+            if (is_dir($file_path)) { // Si l'élément est ub fichier
+                echo "<p>📁 <a href='index.php?dir=$file_path/'>$file/</a></p></li>";
             } else {
                 echo "<li><a href='home/$file' download>$file</a></li>";
             }
